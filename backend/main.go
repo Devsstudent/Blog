@@ -18,14 +18,14 @@ func main() {
 
     // Serve static files from React build
   app.Use("/", filesystem.New(filesystem.Config{
-      Root: http.Dir("../render/build"),
+      Root: http.Dir("../render/dist"),
       Browse: true,
   }))
 
 
     // This is important for React Router
   app.Get("/*", func(c *fiber.Ctx) error {
-      return c.SendFile("../render/build/index.html")
+      return c.SendFile("../render/dist/index.html")
    })
 //  fmt.Println("Listening on port 6000...");
   app.Listen(":8080");
