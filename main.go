@@ -29,13 +29,6 @@ func main() {
 
   app.Use(cors.New());
 
-    // Serve static files from React build
-  app.Use("/", filesystem.New(filesystem.Config{
-        Root:       http.FS(render.Dist),
-        Index:      "index.html", 
-        Browse:     true,
-    }))
-
-  fmt.Println("Listening on port 6000...");
+  fmt.Println("Listening on port 8080...");
   app.Listen(":8080");
 }
