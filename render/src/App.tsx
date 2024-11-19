@@ -3,31 +3,32 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import Home from './Home.tsx';
+
+import {Routes, Route} from 'react-router-dom';
+
+// On essaie de limite un max les inputs utilisateur
+
+// On peux stocker tt les post dans le context, au chargement de la page principal
+
+// 
+
 function App() {
-  const [count, setCount] = useState(0)
+  // Fetch les post depuis la db 
+  // Les afficher sur la page main
+  // Sur le click on load la page du post en question
+  const [count, setCount] = useState(0);
+
+  debugger;
 
   return (
     <>
+      <Routes>
+        <Route path="/test" element={<Home />} />
+      </Routes>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+          BRUH
       </div>
-      <h1>Pull up </h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Editatable <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the V
-      </p>
     </>
   )
 }

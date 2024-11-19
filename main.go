@@ -9,6 +9,10 @@ import ("github.com/gofiber/fiber/v2"
   "io/fs"
 )
 
+
+// Il me faut 1 route pour poster un post dans la db
+// 1 other pour les gets aussi
+
 func main() {
   app := fiber.New();
 
