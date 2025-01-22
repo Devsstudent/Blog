@@ -1,7 +1,7 @@
 NAME=blog.local
 
 dev: go.mod
-	(air&) && cd render && npm run dev
+	(./bin/air&) && cd render && npm run dev
 
 all: go.mod
 	go build && (./blog.local&) 

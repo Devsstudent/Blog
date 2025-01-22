@@ -1,16 +1,18 @@
-name: redis-blog
-
+version: "3.9" # Specify a version for Docker Compose
 services:
-	redis:
-		image: redis
-		ports:
-			- "9000:6379"
-		volumes:
-			- ./redis_data:/data
-			- type: bind
-		networks:
-			- redis
+  redis:
+    image: redis
+    ports:
+      - "9000:6379"
+    volumes:
+      - ./redis_data:/data # Shorthand volume definition
+      - type: bind # Explicit bind mount definition
+        source: ./redis_data
+        target: /data
+    networks:
+      - redis
 
 networks:
-	redis:
-		driver: bridge
+  redis:
+    driver: bridge
+
