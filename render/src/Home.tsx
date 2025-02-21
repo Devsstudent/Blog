@@ -2,9 +2,13 @@
 export default function Home() {
 
   return (
-    <div>
+
+    // Nav Bar
+    // Liste des articles -> Loop sur une liste d'articles
+    // Fetch depuis la db
+    <div className="flex justify-end">
       This is the home page lol
-      aksljdklajsd
+      aksljdklajsdaskjdklasjd
     </div>
   )
 }

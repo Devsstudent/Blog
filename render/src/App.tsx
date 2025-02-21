@@ -1,9 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import AddArticle from './AddArticle.tsx';
 import Home from './Home.tsx';
+import NavBar from './Navbar.tsx';
+import { Route, Routes } from 'react-router-dom';
 
 //import {Routes, Route} from 'react-router-dom';
 
@@ -13,20 +11,20 @@ import Home from './Home.tsx';
 
 // 
 
-function App() {
+export default function App() {
   // Fetch les post depuis la db 
   // Les afficher sur la page main
   // Sur le click on load la page du post en question
-  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div classname="flex justify-end">
-          BRUH
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/add' element={< AddArticle />} />
+      </Routes>
+      <div className="text-purple-500">
+        OK
       </div>
-      <Home />
-    </>
-  )
+    </>)
 }
-
-export default App
