@@ -19,15 +19,19 @@ const Articles = () => {
                 </div>
                 {articles?.map((article) => {
                     return (
-                        <div
-                            className="mb-5 cursor-pointer flex justify-center"
-                            onClick={() => {
-                                console.log(article.title);
-                                return routeChange(article.title);
-                            }}
-                        >
-                            <PreviewArticle article={article} />
-                        </div>
+                        <>
+                            {article.validated && (
+                                <div
+                                    className="mb-5 cursor-pointer flex justify-center"
+                                    onClick={() => {
+                                        console.log(article.title);
+                                        return routeChange(article.title);
+                                    }}
+                                >
+                                    <PreviewArticle article={article} />
+                                </div>
+                            )}
+                        </>
                     );
                 })}
             </div>

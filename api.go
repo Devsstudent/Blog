@@ -26,6 +26,8 @@ func routing(app *fiber.App) {
   api.Get("/getAllArticles", getAllArticles);
   api.Post("/addArticleText", addArticleText);
   api.Get("/getArticleFromTitle", getArticleFromTitle);
+  api.Post("/validatePosting", validatePosting);
+  // Envoyer un email quand on ajoute ou post un articles pour demander la validation
 
   app.Use(func(c *fiber.Ctx) error {
 		path := c.Path()

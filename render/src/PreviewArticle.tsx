@@ -3,7 +3,7 @@ import Article from './interfaces/articles';
 const PreviewArticle = ({ article }: { article: Article }) => {
     return (
         <>
-            <div className="border-1 bg-gray-200/80 flex w-[80%] rounded-xl shadow-xl p-3 ">
+            <div className="border-1 bg-pink-300/40 flex w-[80%] rounded-xl shadow-xl p-3 ">
                 <p>
                     <strong>{article.title}</strong>
                     <br />{' '}

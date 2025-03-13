@@ -4,6 +4,8 @@ import ("github.com/gofiber/fiber/v2"
  "github.com/redis/go-redis/v9"
  "io"
  "context"
+ "blog.local/interfaces/types"
+ json "github.com/goccy/go-json"
 )
 
 func uploadArticle(c *fiber.Ctx) error {
@@ -27,7 +29,12 @@ func uploadArticle(c *fiber.Ctx) error {
   if err != nil {
     return c.SendStatus(400);
   }
-  if err:= rdb.Set(ctx, title, string(str), 0).Err(); err != nil {
+  article := new(types.IArticleText)
+  article.Title = title;
+  article.Content = string(str);
+  article.Validated = false;
+  jsonData, err := json.Marshal(article);
+  if err:= rdb.Set(ctx, title, jsonData, 0).Err(); err != nil {
     return c.SendStatus(400);
   }
 

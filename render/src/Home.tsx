@@ -16,9 +16,16 @@ export default function Home() {
 
     return (
         <div className="mt-10">
-            <p className="flex justify-center">
-                Une rapide presentation du blog etc
-            </p>
+            <div className="flex justify-center">
+                <div className="text-xl font-serif shadow-md p-2 m-2">
+                    <p>
+                        Hello, this blog is just a portfolio.
+                        <br />I put articles about my work and hobbie.
+                        <br />
+                        The style should improve with the time !
+                    </p>
+                </div>
+            </div>
             {articles.length > 0 && (
                 <span className="text-2xl ml-10 flex justify-center">
                     Recent articles
@@ -30,7 +37,6 @@ export default function Home() {
                         <div
                             className="mb-5 cursor-pointer flex justify-center"
                             onClick={() => {
-                                console.log(article.title);
                                 return routeChange(article.title);
                             }}
                         >

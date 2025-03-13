@@ -20,22 +20,27 @@ export default function AddArticle() {
     return (
         <>
             <div className="flex justify-evenly">
-                <div className="ml-4 p-2 border-1 rounded-md">
-                    <p className="flex justify-center p-5 text-xl">
+                <div className="ml-4 p-4 border-1 rounded-md">
+                    <p className="flex justify-center p-5 pt-2! text-xl">
                         Writing articles
                     </p>
-                    <label className="flex text-xl mb-2"> Title </label>
+                    <label className="flex text-xl mb-2">
+                        {' '}
+                        <strong>Title</strong>
+                    </label>
                     <Input
                         className="flex"
                         onChange={(e) => {
                             setTitle(e.target.value);
                         }}
                     />
-                    <div className="flex mb-2 text-xl">
-                        <label> Content :</label>
+                    <div className="flex mb-2 text-xl mt-2">
+                        <label>
+                            <strong>Content</strong>
+                        </label>
                     </div>
                     <textarea
-                        className="flex border"
+                        className="flex border p-4 rounded-md"
                         placeholder="Start to type markdown here"
                         cols={70}
                         rows={15}
@@ -71,21 +76,23 @@ export default function AddArticle() {
                         // Maybe add a preview on the right
                     }
                 </div>
-                <div className="border-1 rounded-md shadow-md">
-                    <p className="flex justify-center text-xl p-2">
-                        Upload a file
-                    </p>
-                    <div className="flex w-auto items-center p-2">
-                        <UploadComponent onChange={setUploadedFile} />
-                        <span className="m-1">
-                            Selected filed: {file?.name ?? 'None'}
-                        </span>
-                        <Button
-                            className="hover:cursor-pointer shadow-md bg-emerald-200 hover:bg-emerald-300"
-                            onClick={() => uploadFile(file)}
-                        >
-                            Upload
-                        </Button>
+                <div className="rounded-md">
+                    <div className="shadow-md">
+                        <p className="flex justify-center text-xl p-2">
+                            Upload a file
+                        </p>
+                        <div className="flex w-auto items-center p-2">
+                            <UploadComponent onChange={setUploadedFile} />
+                            <span className="m-1">
+                                Selected filed: {file?.name ?? 'None'}
+                            </span>
+                            <Button
+                                className="hover:cursor-pointer shadow-md bg-emerald-200 hover:bg-emerald-300"
+                                onClick={() => uploadFile(file)}
+                            >
+                                Upload
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

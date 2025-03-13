@@ -4,6 +4,8 @@ import ("github.com/gofiber/fiber/v2"
  "github.com/redis/go-redis/v9"
  "blog.local/interfaces/types"
  "context"
+ json "github.com/goccy/go-json"
+ "log"
 )
 
 func getAllArticles(c *fiber.Ctx) error {
@@ -27,7 +29,13 @@ func getAllArticles(c *fiber.Ctx) error {
     if (err != nil) {
       return c.SendStatus(400);
     }
-    allArticles = append(allArticles, types.IArticleText{Content: val, Title: key, Html: convertMarkdownToHtml(val, key)});
+    var retrievedArticle types.IArticleText;
+    if err := json.Unmarshal([]byte(val), &retrievedArticle); err != nil {
+	    log.Fatalf("Error deserializing article: %v", err)
+    }
+    
+    retrievedArticle.Html = convertMarkdownToHtml(retrievedArticle.Content, retrievedArticle.Title);
+    allArticles = append(allArticles, retrievedArticle);
   }
   c.JSON(allArticles);
   return c.SendStatus(200);
